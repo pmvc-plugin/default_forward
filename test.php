@@ -1,5 +1,5 @@
 <?php
-PMVC\Load::mvc();
+PMVC\Load::plug();
 PMVC\addPlugInFolder('../');
 class Default_forwardTest extends PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class Default_forwardTest extends PHPUnit_Framework_TestCase
         ]);
         $p = PMVC\plug($this->_plug);
         $p->onMapRequest();
-        $c = \PMVC\getc();
+        $c = \PMVC\plug('controller');
         $mapping = $c->getMapping();
 
         $this->assertTrue(!empty($mapping->findForward('debug')));

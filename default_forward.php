@@ -1,7 +1,6 @@
 <?php
 namespace PMVC\PlugIn\default_forward;
-
-// \PMVC\l(__DIR__.'/xxx.php');
+\PMVC\initPlugin(['controller'=>null]);
 
 ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\default_forward';
 
@@ -9,7 +8,7 @@ class default_forward extends \PMVC\PlugIn
 {
     public function onMapRequest()
     {
-        $c = \PMVC\getC();
+        $c = \PMVC\plug('controller');
         $b = new \PMVC\MappingBuilder();
         $b->addForward('debug', [
             _TYPE=>'view'
