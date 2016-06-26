@@ -22,7 +22,7 @@ class default_forward extends \PMVC\PlugIn
 
     public function init()
     {
-        if (isset($this['realUrl'])) {
+        if (!isset($this['realUrl'])) {
             $this['realUrl'] = \PMVC\plug('url')->realUrl(); 
         }
         \PMVC\callPlugin(

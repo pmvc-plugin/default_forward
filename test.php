@@ -1,6 +1,6 @@
 <?php
 PMVC\Load::plug();
-PMVC\addPlugInFolder('../');
+PMVC\addPlugInFolders(['../']);
 class Default_forwardTest extends PHPUnit_Framework_TestCase
 {
     private $_plug = 'default_forward';
@@ -29,8 +29,8 @@ class Default_forwardTest extends PHPUnit_Framework_TestCase
         $c = \PMVC\plug('controller');
         $mapping = $c->getMapping();
 
-        $this->assertTrue(!empty($mapping->findForward('debug')));
-        $this->assertTrue(!empty($mapping->findForward('error')));
+        $this->assertTrue($mapping->forwardExists('debug'));
+        $this->assertTrue($mapping->forwardExists('error'));
     }
 
 }
