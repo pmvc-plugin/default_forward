@@ -10,6 +10,9 @@ class default_forward extends \PMVC\PlugIn
     {
         $c = \PMVC\plug('controller');
         $b = new \PMVC\MappingBuilder();
+        $b->addForward('dump', [
+            _TYPE=>'view'
+        ]);
         $b->addForward('debug', [
             _TYPE=>'view'
         ]);
