@@ -20,7 +20,7 @@ class default_forward extends \PMVC\PlugIn
            _TYPE=>'redirect',
            _PATH=>$this['realUrl'].'/error'
         ]);
-        $c->addMapping($b());
+        $c->addMapping($b);
     }
 
     public function init()
