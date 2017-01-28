@@ -18,16 +18,13 @@ class default_forward extends \PMVC\PlugIn
         ]);
         $b->addForward('error', [
            _TYPE=>'redirect',
-           _PATH=>$this['realUrl'].'/error'
+           _PATH=>\PMVC\getOption('realUrl').'/error'
         ]);
         $c->addMapping($b);
     }
 
     public function init()
     {
-        if (!isset($this['realUrl'])) {
-            $this['realUrl'] = \PMVC\plug('url')->realUrl(); 
-        }
         \PMVC\callPlugin(
             'dispatcher',
             'attach',
