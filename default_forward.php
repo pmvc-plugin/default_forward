@@ -18,7 +18,7 @@ class default_forward extends \PMVC\PlugIn
         ]);
         $b->addForward('error', [
            _TYPE=>'redirect',
-           _PATH=>\PMVC\getOption('realUrl').'/error'
+           _PATH=>'/error'
         ]);
         $c->addMapping($b);
     }
