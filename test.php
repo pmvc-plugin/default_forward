@@ -27,7 +27,7 @@ class Default_forwardTest extends PHPUnit_Framework_TestCase
         $p = PMVC\plug($this->_plug);
         $p->onMapRequest();
         $c = \PMVC\plug('controller');
-        $mapping = $c->getMapping();
+        $mapping = $c->getMappings();
 
         $this->assertTrue($mapping->forwardExists('debug'));
         $this->assertTrue($mapping->forwardExists('error'));
