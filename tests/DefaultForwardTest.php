@@ -1,14 +1,10 @@
 <?php
-PMVC\Load::plug();
-PMVC\addPlugInFolders(['../']);
-class Default_forwardTest extends PHPUnit_Framework_TestCase
+
+use PMVC\TestCase;
+
+class DefaultForwardTest extends TestCase
 {
     private $_plug = 'default_forward';
-
-    function teardown()
-    {
-        \PMVC\unPlug($this->_plug);
-    }
 
     function testPlugin()
     {
@@ -16,7 +12,7 @@ class Default_forwardTest extends PHPUnit_Framework_TestCase
         print_r(PMVC\plug($this->_plug));
         $output = ob_get_contents();
         ob_end_clean();
-        $this->assertContains($this->_plug,$output);
+        $this->haveString($this->_plug,$output);
     }
 
     function testAddDefaultForward()
